@@ -23,7 +23,7 @@ export default function Home() {
       <Hero />
       <ProjectGrid />
       <Quote />
-            <TechStack />
+            {/* <TechStack /> */}
 
     </div>
   );
