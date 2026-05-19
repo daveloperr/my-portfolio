@@ -11,6 +11,15 @@
     font-optical-sizing: auto;
     font-style: italic; 
   }
+   @keyframes back1 {
+      from { background-size: 100% 100%; }
+      to   { background-size: 99% 100%; }
+    }
+    @keyframes back2 {
+      from { background-size: 48.56% 50%; }
+      to   { background-size: 43.9% 50.1%; }
+    }
+  
 }
 
 
@@ -27,6 +36,7 @@
     --foreground: #ededed;
   }
 }
+
 
 body {
   background: var(--background);
