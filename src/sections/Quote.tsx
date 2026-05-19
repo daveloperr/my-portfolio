@@ -28,11 +28,11 @@ export default function Quote() {
       gsap.fromTo(videoWrap.current, 
         { 
           width: "96vw",   //  matches starting default width
-          height: "70vh",  
+          height: "100vh",  
         },
         {
           width: "100vw",  // animates out to full screen width
-          height: "70vh", 
+          height: "100vh", 
           ease: "none",
           scrollTrigger: {
             trigger: pinSection.current,
@@ -75,7 +75,7 @@ export default function Quote() {
             ref={videoWrap}
             className="
               w-[96vw]         
-              h-[70vh]          
+              h-[100vh]          
               rounded-lg
               overflow-hidden
             "
