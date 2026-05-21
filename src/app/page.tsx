@@ -3,6 +3,7 @@ import Hero from "../sections/Hero";
 import ProjectGrid from "../components/projects/ProjectGrid";
 import { TechStack } from "../sections/TechStack";
 import Quote from "../sections/Quote";
+import Contact from "../sections/Contact";
 
 
 export default function Home() {
@@ -20,11 +21,11 @@ export default function Home() {
         </div>
       </div>
 
-      <Hero />
+      <Hero/>
       <ProjectGrid />
-      <Quote />
-            {/* <TechStack /> */}
-
+      {/* <Quote />
+      <TechStack />
+      <Contact /> */}
     </div>
   );
 }
