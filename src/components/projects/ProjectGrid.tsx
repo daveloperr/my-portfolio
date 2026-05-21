@@ -34,8 +34,8 @@ export default function ProjectGrid() {
     <section className=" px-6 py-32">
       {/* SECTION HEADER */}
       <div className="mb-24 border-b border-white/10 pb-6">
-        <h2 className=" text-8xl font-mono tracking-widest uppercase text-neutral-400">
-          SELECTED WORKS
+        <h2 className=" lg:text-8xl font-sans font-bold tracking-tighter uppercase text-black text-center">
+          ALL WORKS
         </h2>
       </div>
 
