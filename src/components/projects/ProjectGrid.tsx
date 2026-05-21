@@ -11,7 +11,7 @@ const projects = [
     title: "UNAI Asset Management",
     deliverables: ["Web Development"],
     description: "Crafted a cohesive brand identity and designed an intuitive website for UNAI Asset Management, a financial services company, resulting in a 25% increase in user engagement.",
-    imageUrl: "/assets.jpg"
+    imageUrl: "/asset2.jpg"
   },
   {
     id: 3,
@@ -34,8 +34,8 @@ export default function ProjectGrid() {
     <section className=" px-6 py-32">
       {/* SECTION HEADER */}
       <div className="mb-24 border-b border-white/10 pb-6">
-        <h2 className=" text-xs font-mono tracking-widest uppercase text-neutral-400">
-          02 / SELECTED WORKS
+        <h2 className=" text-8xl font-mono tracking-widest uppercase text-neutral-400">
+          SELECTED WORKS
         </h2>
       </div>
 
