@@ -14,7 +14,8 @@ export default function Hero() {
     const navbarRef = useRef<HTMLDivElement>(null!);
     const paragraphRef1 = useRef<HTMLDivElement>(null);
     const paragraphRef2 = useRef<HTMLDivElement>(null);
-
+    const quoteRightRef = useRef<HTMLDivElement>(null);
+    const quoteLeftRef = useRef<HTMLDivElement>(null);
 
 
     useLayoutEffect(() => {
@@ -60,6 +61,26 @@ export default function Hero() {
                 y: () => -window.innerHeight / 2 + 250,
                 ease: "power2.out",
             }, 0);
+            // FINAL PHASE → quote reveal
+            tl.to(
+                quoteRightRef.current,
+                {
+                    x: -40,
+                    opacity: 1,
+                    ease: "power3.out",
+                },
+                0.8
+            );
+
+            tl.to(
+                quoteLeftRef.current,
+                {
+                    x: 40,
+                    opacity: 1,
+                    ease: "power3.out",
+                },
+                0.8
+            );
 
 
 
@@ -89,7 +110,7 @@ export default function Hero() {
                     <div
                         ref={navbarRef}
                         className="absolute left-0 w-full z-20"
-                        style={{ top: "100%" }}   
+                        style={{ top: "100%" }}
                     >
                         <NavBar />
                     </div>
@@ -99,20 +120,34 @@ export default function Hero() {
                 <div className="absolute inset-0 flex items-end justify-center pb-16">
 
 
-                    <div className="flex flex-col items-center">
-
+                    <div className="relative flex flex-col items-center">
                         <div
                             ref={imgWrapperRef}
                             className="z-20 overflow-hidden rounded-md origin-center"
                             style={{ width: "200px", height: "200px" }}
                         >
-                            <img
-                                src="/me.png"
-                                alt="Vaughn Lopez"
-                                className="w-full h-full object-cover"
-                            />
+                            <img src="/me.png" className="w-full h-full object-cover" />
                         </div>
 
+                        {/* QUOTE RIGHT */}
+                        <div
+                            ref={quoteRightRef}
+                            className="absolute right-[20px] top-1/2 -translate-y-1/2 opacity-0 z-30"
+                        >
+                            <p className="uppercase text-sm tracking-wide max-w-[160px] text-left">
+                                Color is where they come alive.
+                            </p>
+                        </div>
+
+                        {/* QUOTE LEFT */}
+                        <div
+                            ref={quoteLeftRef}
+                            className="absolute left-[80px] bottom-[100%] opacity-0 z-30"
+                        >
+                            <p className="uppercase text-sm tracking-wide max-w-[160px] text-left">
+                                Monochrome is where ideas are born;
+                            </p>
+                        </div>
                         <div className="mt-3 z-10 overflow-hidden">
                             <div ref={paragraphRef1}>
                                 <h2 className="uppercase lg:text-5xl tracking-tighter leading-[0.85] text-center font-extrabold">
