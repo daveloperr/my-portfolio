@@ -109,7 +109,7 @@ export default function Hero() {
 
                     <div
                         ref={navbarRef}
-                        className="absolute left-0 w-full z-20"
+                        className="absolute left-0 w-full z-50"
                         style={{ top: "100%" }}
                     >
                         <NavBar />
