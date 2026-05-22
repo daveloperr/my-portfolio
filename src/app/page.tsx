@@ -23,9 +23,9 @@ export default function Home() {
 
       <Hero/>
       <ProjectGrid />
-      {/* <Quote />
-      <TechStack />
-      <Contact /> */}
+      <Quote />
+      {/* <TechStack /> */}
+      <Contact />
     </div>
   );
 }
