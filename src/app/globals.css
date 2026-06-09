@@ -5,7 +5,7 @@
   --foreground: #171717;
 }
 
-@layer base {
+/* @layer base {
   .font-serif {
     font-variation-settings: "opsz" 100; 
     font-optical-sizing: auto;
@@ -20,7 +20,7 @@
       to   { background-size: 43.9% 50.1%; }
     }
   
-}
+} */
 
 
 @theme inline {
