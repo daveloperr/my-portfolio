@@ -41,8 +41,9 @@ export default function Home() {
       </div>
 
       <Hero navbarRef={navbarRef} />
+            <Quote />
+
       <ProjectGrid />
-      <Quote />
       <Contact />
     </div>
   );
