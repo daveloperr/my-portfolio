@@ -11,7 +11,7 @@ export default function ViewMoreProjects({ currentSlug }: { currentSlug: string 
         <section className="mt-32 flex justify-end py-24">
     <div className="grid grid-cols-2 gap-4 w-fit">
 
-        <span className="col-span-2 mb-4 text-left uppercase text-5xl font-bold">
+        <span className="col-span-2  text-left uppercase text-5xl font-bold">
             More Works
         </span>
 
