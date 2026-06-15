@@ -1,4 +1,6 @@
 import { Fragment } from "react";
+import ViewMoreProjects from "./ViewMoreProjects";
+import NavBar from "../layout/NavBar";
 
 
 type Project = {
@@ -26,7 +28,16 @@ type Props = {
 
 export default function ProjectDetails({ project }: Props) {
   return (
-    <main className="px-6 py-20 ">
+    <main className="px-6">
+
+      <div
+        className="fixed top-0 left-0 w-full px-6 pointer-events-none"
+        style={{ zIndex: 50, mixBlendMode: "difference", transform: "translateY(18px)" }}
+      >
+        <div className="pointer-events-auto">
+          <NavBar />
+        </div>
+      </div>
 
       <div className="pointer-events-none fixed inset-0 z-[99999] px-6">
         <div className="grid h-full w-full grid-cols-12 gap-6">
@@ -38,7 +49,7 @@ export default function ProjectDetails({ project }: Props) {
 
 
       {/* HEADER */}
-      <div className=" mb-16 mt-10">
+      <div className=" mb-16 mt-42">
         <h1 className="text-[7rem] font-semibold uppercase tracking-tighter leading-[0.9] text-center">
           {project.title}
         </h1>
@@ -67,7 +78,7 @@ export default function ProjectDetails({ project }: Props) {
           <p className="max-w-md leading-snug">{project.description}</p>
         </div>
 
-       
+
         <div className="col-span-6 col-start-3">
           <h2 className="uppercase text-xs text-neutral-500 mb-1">Deliverables</h2>
           <div className="flex flex-col">
@@ -77,7 +88,7 @@ export default function ProjectDetails({ project }: Props) {
           </div>
         </div>
 
-         <div className="col-span-2">
+        <div className="col-span-2">
           <h2 className="uppercase text-xs text-neutral-500 mb-1">Link</h2>
           {project.link ? (
             <a href={project.link} target="_blank" rel="noopener noreferrer" className="underline">
@@ -91,42 +102,44 @@ export default function ProjectDetails({ project }: Props) {
 
       </div>
 
- <div className="flex flex-col gap-24">
-  {project.layout.map((block, i) => (
-    <Fragment key={i}>
-      <div
-        className={`grid gap-6 ${block.type === "split" ? "grid-cols-2" : "grid-cols-1"}`}
-      >
-        {block.images.map((src) => (
-          <img
-            key={src}
-            src={src}
-            alt={project.title}
-            className="w-full h-auto object-cover rounded-md"
-          />
+      <div className="flex flex-col gap-24">
+        {project.layout.map((block, i) => (
+          <Fragment key={i}>
+            <div
+              className={`grid gap-6 ${block.type === "split" ? "grid-cols-2" : "grid-cols-1"}`}
+            >
+              {block.images.map((src) => (
+                <img
+                  key={src}
+                  src={src}
+                  alt={project.title}
+                  className="w-full h-auto object-cover rounded-md"
+                />
+              ))}
+            </div>
+
+            {i === 1 && project.overview && (
+              <div className="grid grid-cols-12 gap-6 py-10">
+                <span className="col-span-4 text-2xl tracking-tighter text-black font-medium">
+                  Overview
+                </span>
+                <div className="col-span-6 max-w-4xl space-y-6">
+                  {project.overview?.map((paragraph, index) => (
+                    <p
+                      key={index}
+                      className=" text-lg leading-relaxed font-sans"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            )}
+          </Fragment>
         ))}
       </div>
 
-     {i === 1 && project.overview && (
-  <div className="grid grid-cols-12 gap-6 py-10">
-    <span className="col-span-4 text-2xl tracking-tighter text-black font-medium">
-      Overview
-    </span>
-  <div className="col-span-6 max-w-4xl space-y-6">
-  {project.overview?.map((paragraph, index) => (
-    <p
-      key={index}
-      className=" text-lg leading-relaxed font-sans"
-    >
-      {paragraph}
-    </p>
-  ))}
-</div>
-  </div>
-)}
-    </Fragment>
-  ))}
-</div>
+      <ViewMoreProjects currentSlug={project.slug} />
 
     </main>
   );
