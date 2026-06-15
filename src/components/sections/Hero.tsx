@@ -106,7 +106,7 @@ export default function Hero({ navbarRef }: { navbarRef: React.RefObject<HTMLDiv
         <section ref={sectionRef} className="relative h-screen flex flex-col">
 
             {/* GIANT TITLE */}
-            <div className="fixed top-0 left-0 w-full z-20 pt-2 pb-2 px-6">
+            <div className="fixed top-0 left-0 w-full z-20  pb-2 px-6">
                 <div ref={titleRef} className="w-full flex justify-center overflow-hidden">
                     <h3 className="uppercase text-[13.6vw] font-bold leading-[0.75] tracking-[-0.05em] pb-2 text-[#1a1a1a] select-none whitespace-nowrap">
                         VaughnLopez
