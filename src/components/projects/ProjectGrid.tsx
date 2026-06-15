@@ -8,7 +8,7 @@ export default function ProjectGrid() {
         {projects.map((project, index) => (
           <Link
             key={project.id}
-            href={`/projects/${project.slug}`}
+            href={`/works/${project.slug}`}
             className="group grid grid-cols-[1fr_2fr_1fr] items-start gap-8 py-10 cursor-pointer"
           >
             {/* LEFT — label only on first item */}
@@ -53,6 +53,7 @@ export default function ProjectGrid() {
           </Link>
         ))}
       </div>
+
     </section>
   );
 }
