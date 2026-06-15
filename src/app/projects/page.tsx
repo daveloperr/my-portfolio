@@ -1,4 +1,4 @@
-import ProjectGrid from "../../components/sections/ProjectGrid";
+import ProjectGrid from "../../components/projects/ProjectGrid";
 
 export default function ProjectsPage() {
   return <ProjectGrid />;
