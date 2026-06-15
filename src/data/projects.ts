@@ -34,9 +34,9 @@ const projects: Project[] = [
             { type: "full", images: ["/innov_front.jpg"] },
             { type: "split", images: ["/assets/innov/innov1.webp", "/assets/innov/innov2.webp"] },
             { type: "full", images: ["/assets/innov/mobile_mockup.webp"] },
-            { type: "full", images: ["/assets/innov/innov4.webp"] },
-            { type: "split", images: ["/assets/innov/innov5.webp", "/assets/innov/innov6.webp"] },
             { type: "full", images: ["/assets/innov/innov3.webp"] },
+            { type: "split", images: ["/assets/innov/innov5.webp", "/assets/innov/innov6.webp"] },
+            { type: "full", images: ["/assets/innov/innov4.webp"] },
 
 
 
@@ -75,12 +75,11 @@ const projects: Project[] = [
         imageUrl: "/drl_front.webp",
         layout: [
             { type: "full", images: ["/drl_front.webp"] },
-            { type: "full", images: ["/assets/drl/drl4.webp"] },
             { type: "split", images: ["/assets/drl/drl1.webp", "/assets/drl/drl5.webp"] },
-            { type: "full", images: ["/assets/drl/billing_mockup.webp"] },
-
+            { type: "full", images: ["/assets/drl/drl4.webp"] },
+            { type: "full", images: ["/assets/drl/login_mockup.webp"] },
             { type: "split", images: ["/assets/drl/drl2.webp", "/assets/drl/drl3.webp"] },
-            { type: "full", images: ["/assets/drl/drl6.webp"] },
+            { type: "full", images: ["/assets/drl/billing_mockup.webp"] },
 
 
         ],
@@ -97,11 +96,15 @@ const projects: Project[] = [
         imageUrl: "/celestial_front.webp",
         layout: [
             { type: "full", images: ["/celestial_front.webp"] },
-            { type: "full", images: ["/assets/celestial/cl3.webp"] },
             { type: "split", images: ["/assets/celestial/cl2.webp", "/assets/celestial/cl4.webp"] },
-            { type: "full", images: ["/assets/celestial/cl5.webp"] },
+
             { type: "full", images: ["/assets/celestial/celestial_mobile.webp"] },
-            { type: "split", images: ["/assets/celestial/celestial_macbook.webp", "/assets/celestial/cl1.webp"] },
+            { type: "full", images: ["/assets/celestial/cl3.webp"] },
+
+            { type: "split", images: ["/assets/celestial/cl5.webp", "/assets/celestial/cl1.webp"] },
+            { type: "full", images: ["/assets/celestial/celestial_macbook.webp"] },
+
+
 
 
         ],
@@ -118,13 +121,11 @@ const projects: Project[] = [
         imageUrl: "/kitchen_front.webp",
         layout: [
             { type: "full", images: ["/kitchen_front.webp"] },
-            { type: "full", images: ["/assets/kitchencomfort/k4.webp"] },
-            { type: "split", images: ["/assets/kitchencomfort/k2.webp", "/assets/kitchencomfort/k1.webp"] },
-            { type: "full", images: ["/assets/kitchen/kitchen4.webp"] },
-            { type: "full", images: ["/assets/kitchencomfort/k3.webp"] },
-            { type: "full", images: ["/assets/kitchencomfort/kitchen_macbook.webp"] },
+            { type: "split", images: ["/assets/kitchencomfort/k4.webp", "/assets/kitchencomfort/k2.webp"] },
+            { type: "full", images: ["/assets/kitchencomfort/kitchen_mockup.webp"] },
+            { type: "split", images: ["/assets/kitchencomfort/k1.webp", "/assets/kitchencomfort/k3.webp"] },
 
-        ],
+        ]
     },
 ];
 
