@@ -1,9 +1,9 @@
 "use client";
 
 import { useRef } from "react";
-import NavBar from "../components/NavBar";
+import NavBar from "../components/layout/NavBar";
 import Hero from "../components/sections/Hero";
-import ProjectGrid from "../components/sections/ProjectGrid";
+import ProjectGrid from "../components/projects/ProjectGrid";
 import Quote from "../components/sections/Quote";
 import Contact from "../components/sections/Contact";
 
