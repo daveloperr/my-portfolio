@@ -34,7 +34,7 @@ export default function ProjectDetails({ project }: Props) {
 
       {/* HEADER */}
       <div className=" mb-16 mt-10">
-        <h1 className="text-[7rem] font-semibold uppercase tracking-tighter leading-[0.9]">
+        <h1 className="text-[7rem] font-semibold uppercase tracking-tighter leading-[0.9] text-center">
           {project.title}
         </h1>
       </div>
@@ -43,10 +43,9 @@ export default function ProjectDetails({ project }: Props) {
       {/* PROJECT INFO */}
       <div className="grid grid-cols-12 gap-6 mb-20 mx-auto mt-30 items-start">
 
-        {/* ROW 1: LABELS */}
         <div className="col-span-2">
           <h2 className="uppercase text-xs text-neutral-500 mb-1">Timeline</h2>
-          <span>{project.year}</span>
+          <span className="text-5xl font-bold tracking-tighter ">{project.year}</span>
         </div>
 
         <div className="col-span-3">
@@ -63,8 +62,17 @@ export default function ProjectDetails({ project }: Props) {
           <p className="max-w-md leading-snug">{project.description}</p>
         </div>
 
-        {/* ROW 2: LINK + DELIVERABLES — always aligned */}
-        <div className="col-span-2">
+       
+        <div className="col-span-6 col-start-3">
+          <h2 className="uppercase text-xs text-neutral-500 mb-1">Deliverables</h2>
+          <div className="flex flex-col">
+            {project.deliverables?.map((item) => (
+              <span key={item}>{item}</span>
+            ))}
+          </div>
+        </div>
+
+         <div className="col-span-2">
           <h2 className="uppercase text-xs text-neutral-500 mb-1">Link</h2>
           {project.link ? (
             <a href={project.link} target="_blank" rel="noopener noreferrer" className="underline">
@@ -75,18 +83,9 @@ export default function ProjectDetails({ project }: Props) {
           )}
         </div>
 
-        <div className="col-span-3">
-          <h2 className="uppercase text-xs text-neutral-500 mb-1">Deliverables</h2>
-          <div className="flex flex-col">
-            {project.deliverables?.map((item) => (
-              <span key={item}>{item}</span>
-            ))}
-          </div>
-        </div>
 
       </div>
 
-      {/* LAYOUT IMAGES */}
       <div className="flex flex-col gap-6">
         {project.layout.map((block, i) => (
           <div
@@ -99,7 +98,7 @@ export default function ProjectDetails({ project }: Props) {
                 key={src}
                 src={src}
                 alt={project.title}
-                className="w-full h-auto object-cover"
+                className="w-full h-auto object-cover rounded-md"
               />
             ))}
           </div>
