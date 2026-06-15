@@ -1,6 +1,6 @@
 import projects from "../../../data/projects";
 import { notFound } from "next/navigation";
-import ProjectDetails from "../../../components/sections/ProjectDetails";
+import ProjectDetails from "../../../components/projects/ProjectDetails";
 
 type Props = {
   params: Promise<{ slug: string }>;
