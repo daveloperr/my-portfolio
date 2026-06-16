@@ -1,6 +1,6 @@
 export default function Quote() {
   return (
-    <section className="mt-80 w-full px-6">
+    <section className="mt-80 w-full">
       <div className="grid grid-cols-12">
         
         <h1 className="col-span-12 text-[4rem] font-bold leading-[1.1] tracking-tighter indent-68">
