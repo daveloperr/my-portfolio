@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function ProjectGrid() {
   return (
-    <section className="px-6 py-32 mt-20">
+    <section className=" py-32 mt-20">
       <div className="flex flex-col gap-0">
         {projects.map((project, index) => (
           <Link
