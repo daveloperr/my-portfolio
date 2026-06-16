@@ -36,9 +36,9 @@ const projects: Project[] = [
         techStack: ["Figma", "React.js", "TypeScript", "Tailwind CSS", "PHP", "MySQL", "Firebase", "Framer Motion", "Embla Carousel"],
         roles: ["UI Designer", "Full Stack Developer"],
         description: "Designed and developed a new website for InnovationOne Inc. by successfully executing their updated brand identity guidelines into an intuitive user interface.",
-        imageUrl: "/innov_front.jpg",
+        imageUrl: "/innov_front.webp",
         layout: [
-            { type: "full", images: ["/innov_front.jpg"] },
+            { type: "full", images: ["/innov_front.webp"] },
             { type: "split", images: ["/assets/innov/innov1.webp", "/assets/innov/innov2.webp"] },
             { type: "full", images: ["/assets/innov/mobile_mockup.webp"] },
             { type: "full", images: ["/assets/innov/innov3.webp"] },
