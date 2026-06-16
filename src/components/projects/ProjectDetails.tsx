@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import ViewMoreProjects from "./ViewMoreProjects";
 import NavBar from "../layout/NavBar";
+import Contact from "../sections/Contact";
 
 
 type Project = {
@@ -140,6 +141,10 @@ export default function ProjectDetails({ project }: Props) {
       </div>
 
       <ViewMoreProjects currentSlug={project.slug} />
+
+
+      
+      <Contact/>
 
     </main>
   );
