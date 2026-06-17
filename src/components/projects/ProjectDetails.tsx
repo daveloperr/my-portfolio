@@ -1,7 +1,10 @@
-import { Fragment } from "react";
+"use client";
+
+import { Fragment, useState } from "react";
 import ViewMoreProjects from "./ViewMoreProjects";
 import NavBar from "../layout/NavBar";
 import Contact from "../sections/Contact";
+import AboutDrawer from "../ui/drawer";
 
 
 type Project = {
@@ -28,19 +31,27 @@ type Props = {
 };
 
 export default function ProjectDetails({ project }: Props) {
+    const [aboutOpen, setAboutOpen] = useState(false);
+  
   return (
-    <main className="px-6">
+    <>
+    <div
+    className="fixed top-0 left-0 w-full px-6 pointer-events-none"
+    style={{ zIndex: 50, mixBlendMode: "difference", transform: "translateY(18px)" }}
+  >
+    <div className="pointer-events-auto">
+      <NavBar onOpenAbout={() => setAboutOpen(true)} />
+    </div>
+  </div>
 
-      <div
-        className="fixed top-0 left-0 w-full px-6 pointer-events-none"
-        style={{ zIndex: 50, mixBlendMode: "difference", transform: "translateY(18px)" }}
-      >
-        <div className="pointer-events-auto">
-          <NavBar />
-        </div>
-      </div>
 
-      <div className="pointer-events-none fixed inset-0 z-[99999] px-6">
+      <AboutDrawer open={aboutOpen} onClose={() => setAboutOpen(false)} />
+
+
+    <main id="blur-details">
+
+
+      <div className="pointer-events-none fixed inset-0 z-[99999] ">
         <div className="grid h-full w-full grid-cols-12 gap-6">
           {Array.from({ length: 12 }).map((_, i) => (
             <div key={i} className="border border-red-500/80 h-full" />
@@ -103,7 +114,7 @@ export default function ProjectDetails({ project }: Props) {
 
       </div>
 
-      <div className="flex flex-col gap-24">
+      <div className="flex flex-col gap-32">
         {project.layout.map((block, i) => (
           <Fragment key={i}>
             <div
@@ -147,5 +158,6 @@ export default function ProjectDetails({ project }: Props) {
       <Contact/>
 
     </main>
+    </>
   );
 }
