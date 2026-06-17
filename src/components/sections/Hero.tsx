@@ -1,17 +1,30 @@
 "use client";
 
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Hero({ navbarRef }: { navbarRef: React.RefObject<HTMLDivElement> }) {
+
+interface HeroProps {
+  navbarRef: React.RefObject<HTMLDivElement>;
+  paused: boolean;
+}
+
+export default function Hero({
+  navbarRef,
+  paused,
+}: HeroProps) {
+
+
     const sectionRef = useRef<HTMLElement>(null);
     const imgWrapperRef = useRef<HTMLDivElement>(null);
     const titleRef = useRef<HTMLDivElement>(null!);
     const paragraphRef1 = useRef<HTMLDivElement>(null);
     const paragraphRef2 = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
 
     useLayoutEffect(() => {
         // Set navbar below title BEFORE anything else renders
@@ -102,11 +115,23 @@ export default function Hero({ navbarRef }: { navbarRef: React.RefObject<HTMLDiv
         return () => ctx.revert();
     }, []);
 
+    useEffect(() => {
+  if (!videoRef.current) return;
+
+  if (paused) {
+    videoRef.current.pause();
+  } else {
+    videoRef.current.play().catch(() => {});
+  }
+}, [paused]);
+
+    
+
     return (
-        <section ref={sectionRef} className="relative h-screen flex flex-col">
+        <section ref={sectionRef} id="blur-hero" className="relative h-screen flex flex-col">
 
             {/* GIANT TITLE */}
-            <div className="fixed top-0 left-0 w-full z-20  pb-2 px-6">
+            <div className="fixed top-0 left-0 w-full z-20  pb-2">
                 <div ref={titleRef} className="w-full flex justify-center overflow-hidden">
                     <h3 className="uppercase text-[13.6vw] font-bold leading-[0.75] tracking-[-0.05em] pb-2 text-[#1a1a1a] select-none whitespace-nowrap">
                         VaughnLopez
@@ -123,6 +148,8 @@ export default function Hero({ navbarRef }: { navbarRef: React.RefObject<HTMLDiv
                         style={{ width: "400px", height: "230px", transformOrigin: "center center" }}
                     >
                         <video
+                          ref={videoRef}
+
                             src="/video-showcase.mp4"
                             autoPlay
                             loop
