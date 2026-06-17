@@ -18,7 +18,7 @@ export default function AboutDrawer({ open, onClose }: AboutDrawerProps) {
   }, []);
 
   useEffect(() => {
-    const targets = ["#blur-hero", "#blur-navbar", "#blur-details"]
+    const targets = ["#blur-hero", "#blur-navbar", "#blur-details", "#more-projects", "#contacts"]
       .map((id) => document.querySelector(id))
       .filter(Boolean);
     if (!overlayRef.current || !drawerRef.current) return;
@@ -118,9 +118,71 @@ export default function AboutDrawer({ open, onClose }: AboutDrawerProps) {
           </div>
 
 
-          <div className="mt-6">
-            <img src="me-cool.png" alt="dave-vaughn" className="w-full h-auto" />
+          <div className="mt-6 relative"
+          >
+            {/* scattered words - large, bold, white, no rotation */}
+            <span className="absolute top-6 left-8 text-6xl font-bold text-[#F472B6]">
+              build
+            </span>
+
+            <span className="absolute top-1/3 right-6 text-6xl font-bold text-[#F472B6]">
+              worlds
+            </span>
+
+            <span className="absolute bottom-80 left-4 text-6xl font-bold text-[#F472B6]">
+              break
+            </span>
+
+            <span className="absolute bottom-10 right-6 text-6xl font-bold text-[#F472B6]">
+              rules
+            </span>
+
+            {/* image */}
+            <img src="/me-cool.png" alt="dave-vaughn" className="w-full h-auto" />
           </div>
+
+
+            <div className="grid grid-cols-2 items-start w-full mt-10 border-b border-gray-800 pb-8">
+            <div className="flex items-center gap-3">
+              <span className="w-3 h-3 rounded-full bg-pink-400 block"></span>
+              <span className="text-[1.4rem] font-semibold">Expertise</span>
+            </div>
+
+
+            <div className="flex flex-col text-[1.4rem] font-semibold ">
+              <span>UI/UX Design</span>
+              <span>Front-end Development</span>
+              <span>Back-end Development</span>
+              <span>Motion & Interaction</span>
+              <span>Responsive Layouts</span>
+           
+            </div>
+          </div>
+
+
+          <div className="grid grid-cols-2 items-start w-full mt-10 border-b border-gray-900  pb-8">
+            <div className="flex items-center gap-3">
+              <span className="w-3 h-3 rounded-full bg-pink-400 block"></span>
+              <span className="text-[1.4rem] font-semibold">Tech Stack</span>
+            </div>
+
+
+            <div className="flex flex-col text-[1.4rem] font-semibold ">
+              <span>React.JS</span>
+              <span>Next.JS</span>
+              <span>Node.JS</span>
+              <span>Typescript</span>
+              <span>GSAP</span>
+              <span>Motion</span>
+              <span>Tailwind CSS</span>
+              <span>Firebase</span>
+              <span>Figma</span>
+            </div>
+          </div>
+
+         
+
+
 
         </div>
       </aside>
