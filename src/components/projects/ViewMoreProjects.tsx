@@ -2,11 +2,14 @@ import projects from "@/src/data/projects"
 import Link from "next/link"
 
 export default function ViewMoreProjects({ currentSlug }: { currentSlug: string }) {
-    const filtered = projects
-        .filter((p) => p.slug !== currentSlug)
-        .sort(() => Math.random() - 0.5)
-        .slice(0, 2);
+   const currentIndex = projects.findIndex(
+  (p) => p.slug === currentSlug
+);
 
+const filtered = [
+  projects[(currentIndex + 1) % projects.length],
+  projects[(currentIndex + 2) % projects.length],
+];
     return (
         <section className="mt-32 flex justify-end py-24">
     <div className="grid grid-cols-2 gap-4 w-fit">
