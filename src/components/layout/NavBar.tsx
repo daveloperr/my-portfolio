@@ -47,7 +47,8 @@ export default function NavBar({ onOpenAbout }: NavBarProps) {
         VaughnLopez
       </div>
 
-  
+      <div>Freelance Developer — UI / UX</div>
+
 
       <div className="flex gap-4">
         <button className="uppercase" onClick={onOpenAbout}>About</button>
@@ -55,9 +56,8 @@ export default function NavBar({ onOpenAbout }: NavBarProps) {
         <button className="uppercase" onClick={() => scrollTo("works")}>Work</button>
         <button className="uppercase" onClick={() => scrollTo("contact")}>Contact</button>
       </div>
-       <div>Freelance Developer — UI / UX</div>
 
-          {/* <div>Based in Manila, PH</div> */}
+      <div>Based in Manila, PH</div>
     </nav>
   );
 }
