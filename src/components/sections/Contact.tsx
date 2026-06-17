@@ -1,6 +1,6 @@
 export default function Contact() {
     return (
-        <div className="grid grid-cols-12 px-6">
+        <div className="grid grid-cols-12">
             <div className="col-span-10 col-start-4 max-h-screen flex flex-col mt-40">
                 <h1 className="uppercase lg:text-5xl font-extrabold">
                     Have an opportunity in mind? <br /> Drop me a message at
