@@ -75,7 +75,7 @@ const bottomStack = [
   };
 
   return (
-    <div className="bg-white text-black px-6">
+    <div className=" text-black">
 
       {/* HERO */}
       <section className="h-screen flex items-center justify-center uppercase text-9xl font-bold">
