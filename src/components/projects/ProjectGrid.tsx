@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function ProjectGrid() {
   return (
-    <section className="py-32 mt-20">
+    <section className="py-32 mt-30">
 
       <div className="grid grid-cols-12 gap-x-12">
         {/* LEFT SIDE LABEL */}
