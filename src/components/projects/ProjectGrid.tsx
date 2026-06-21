@@ -31,9 +31,9 @@ export default function ProjectGrid() {
                 />
               </div>
 
-              <div className="mt-6">
+              <div className="mt-4">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-black text-2xl font-semibold uppercase leading-tight">
+                  <h3 className="text-black text-xl font-semibold uppercase leading-tight">
                     {project.title}
                   </h3>
                   <span className="text-gray-700 text-lg font-medium tracking-tight uppercase">
