@@ -23,7 +23,10 @@ export default async function ProjectSlugPage({ params }: Props) {
   <>
     <ProjectDetails project={project} />
     <ViewMoreProjects currentSlug={project.slug} />
+    <div className="-mx-6">
     <Contact />
+
+    </div>
   </>
 );
 }
