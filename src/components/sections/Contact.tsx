@@ -6,8 +6,14 @@ export default function Contact() {
 
             <div className="flex items-center justify-between pb-8 pt-20 border-b border-white/10">
                 <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-pink-400 block"></span>
-                    <span className="text-[1.2rem] font-semibold">Available for Opportunities</span>
+                    <span className=" w-2 h-2 lg:w-3 lg:h-3 rounded-full bg-pink-400 block"></span>
+                    <span className="text-[0.8rem] font-semibold lg:hidden">
+                        Available for Full-time
+                    </span>
+
+                    <span className="text-[1.2rem] font-semibold hidden lg:block">
+                        Available for Opportunities
+                    </span>
                 </div>
 
                 <a href="#" className="flex items-center gap-3 text-sm font-semibold text-neutral-400 hover:text-white transition-colors">
@@ -21,30 +27,33 @@ export default function Contact() {
             </div>
 
             {/* MAIN GRID */}
-            <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start mt-16">
+            <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center justify-items-center mt-12 lg:mt-16 ">
 
-                <div className="lg:col-span-6 flex flex-col gap-8">
-                    <h1 className="text-[3.5rem] sm:text-[4.5rem] lg:text-[5.5rem] font-bold leading-[0.95] tracking-tight">
-                    Create with clear purpose.
+                {/* LEFT COLUMN: Text and Header */}
+                <div className="lg:col-span-6 flex flex-col gap-4 text-center items-center lg:text-left lg:items-start border-b border-white/10 w-full pb-10">
+                    <h1 className="text-[2.3rem] lg:text-[5rem] font-medium leading-[0.95] tracking-tight">
+                        Create with clear purpose.
                     </h1>
-                    <p className="text-neutral-400 text-lg">Logic met with style.</p>
+                    <p className="text-neutral-400 text-md sm:text-[1.5rem] mb-4">Logic met with style.</p>
                 </div>
 
-                <div className="lg:col-span-5 flex flex-col gap-10 lg:col-start-8">
+                {/* RIGHT COLUMN: Profile, Socials, Email, Button */}
+                <div className="lg:col-span-5 flex flex-col gap-10 items-center lg:items-start lg:col-start-8 w-full">
+
                     {/* PROFILE BLOCK */}
-                    <div className="flex flex-col gap-3">
+                    <div className="flex flex-col gap-3 items-center lg:items-start">
                         <div className="flex items-center gap-4">
-                            <div className="w-16 h-16 rounded-full bg-neutral-700 flex-shrink-0 overflow-hidden">
-                                {/* Replace with <img src="..." className="w-full h-full object-cover" /> */}
+                            <div className="w-18 h-18 lg:w-21 lg:h-21 rounded-full bg-neutral-700 overflow-hidden flex-shrink-0">
+                                <img src="/me-cool.png" alt="Profile" className="w-full h-full object-cover" />
                             </div>
-                            <div>
-                                <p className="text-xl font-bold">Dave "Vaughn" Lopez</p>
-                                <p className="text-neutral-400 text-sm">Designer & Developer</p>
+                            <div className="text-center lg:text-left">
+                                <p className="text-[1rem] lg:text-xl font-medium">Vaughn Lopez</p>
+                                <p className="text-neutral-400 text-[0.8rem] lg:text-sm">Designer & Developer</p>
                             </div>
                         </div>
 
                         {/* SOCIAL ICONS */}
-                        <div className="flex items-center gap-4 ml-20 mt-1 text-neutral-400">
+                        <div className="flex items-center gap-4 mt-2 text-neutral-400">
                             <a href="#" aria-label="Dribbble" className="hover:text-white transition-colors">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                     <circle cx="12" cy="12" r="10" />
@@ -70,25 +79,21 @@ export default function Contact() {
                     </div>
 
                     {/* EMAIL */}
-                    <div className="flex flex-col gap-2">
+                    <div className="flex flex-col gap-2 items-center lg:items-start text-center lg:text-left">
                         <p className="text-sm font-semibold text-neutral-400">Contact me</p>
                         <a
                             href="mailto:zar.studiolab@gmail.com"
-                            className="text-3xl sm:text-4xl font-bold tracking-tight hover:opacity-80 transition-opacity"
+                            className="text-2xl sm:text-3xl font-bold tracking-tight hover:opacity-80 transition-opacity break-words"
                         >
                             zar.studio<span className="text-[#F472B6]">lab</span>@gmail.com
                         </a>
-                        <p className="text-neutral-400 text-base mt-1">Interested working with me?</p>
+                        <p className="text-neutral-400 text-base mt-1">Interested in working with me?</p>
                     </div>
-
                     {/* SCHEDULE BUTTON */}
                     <a
                         href="#schedule"
-                        className="inline-flex items-center gap-3 w-fit bg-[#F472B6] text-black font-bold pl-7 pr-2 py-2 rounded-full 
-                        shadow-[0_0_30px_rgba(244,114,182,0.35)] 
-                        hover:shadow-[0_0_40px_rgba(244,114,182,0.5)] 
-                        transition-shadow"
-                                        >
+                        className="inline-flex items-center gap-3 w-fit bg-[#F472B6] text-black font-bold pl-7 pr-2 py-2 rounded-full shadow-[0_0_30px_rgba(244,114,182,0.35)] hover:shadow-[0_0_40px_rgba(244,114,182,0.5)] transition-shadow"
+                    >
                         Schedule Now
                         <span className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -98,6 +103,7 @@ export default function Contact() {
                     </a>
                 </div>
             </div>
+            <span className="uppercase text-xs mt-20 text-right lg:text-right">@VaughLopez 2026</span>
         </section>
     )
 }
