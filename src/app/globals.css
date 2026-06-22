@@ -44,10 +44,8 @@ body {
   /* font-family: Arial, Helvetica, sans-serif; */
 }
 
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+
+
+.loader-hide {
+  transform: translateY(-100%);
 }
