@@ -10,7 +10,7 @@ const KEYWORDS = ["curiosity", "mistakes", "question", "search", "solve"];
 
 const TEXT =
   "I discovered design through deep curiosity and learned it through mistakes. " +
-  "Every answer led to another question, and over time I realized  the " +
+  "Every answer led to another question, and over time I realized the " +
   "search became my driving force, profoundly influencing the way I " +
   "solve.";
 
@@ -26,13 +26,15 @@ function renderWithHighlights() {
           key={i}
           className="highlight-word"
           style={{
-            backgroundImage: "linear-gradient(120deg, #facc15 0%, #facc15 100%)",
+            backgroundImage:
+              "linear-gradient(120deg, rgba(255,20,147,0.55) 0%, rgba(255,20,147,0.55) 100%)",
             backgroundRepeat: "no-repeat",
-            backgroundSize: "0% 100%",
-            backgroundPosition: "0 88%", // sits behind lower portion of glyphs, like a marker
+            backgroundSize: "0% 80%", // hidden initially
+            backgroundPosition: "0 90%",
             boxDecorationBreak: "clone",
             WebkitBoxDecorationBreak: "clone",
             padding: "0 0.05em",
+            borderRadius: "4px",
           }}
         >
           {token}
@@ -52,28 +54,32 @@ export default function Quote() {
     if (!h1) return;
 
     const ctx = gsap.context(() => {
-      const highlights = h1.querySelectorAll<HTMLElement>(".highlight-word");
+      const highlights =
+        h1.querySelectorAll<HTMLElement>(".highlight-word");
+
       if (!highlights.length) return;
 
-      const play = () =>
-        gsap.to(highlights, {
-          backgroundSize: "100% 100%",
-          duration: 0.6,
-          ease: "power2.out",
-          stagger: 0.25,
-          overwrite: true,
-        });
-
-      const reset = () =>
-        gsap.set(highlights, { backgroundSize: "0% 100%" });
+      // Force hidden state on mount
+      gsap.set(highlights, {
+        backgroundSize: "0% 80%",
+      });
 
       ScrollTrigger.create({
         trigger: h1,
-        start: "top 75%",
-        onEnter: play,
-        onEnterBack: play,
-        onLeave: reset,
-        onLeaveBack: reset,
+start: "bottom 10%",
+        once: true,
+
+        onEnter: () => {
+          gsap.to(highlights, {
+            backgroundSize: "100% 80%",
+            duration: 0.7,
+            ease: "power2.out",
+            stagger: 0.2,
+          });
+        },
+
+        // Uncomment temporarily if debugging
+        // markers: true,
       });
     }, h1);
 
@@ -81,14 +87,16 @@ export default function Quote() {
   }, []);
 
   return (
-    <section className="mt-80 w-full">
+   <section className="mt-80 mb-20 w-full">
       <div className="grid grid-cols-12">
-        
-        <h1 ref={h1Ref} className="col-span-12 text-[4rem] font-semibold leading-[1.1] tracking-tighter indent-70">
+        <h1
+          ref={h1Ref}
+          className="col-span-12 text-[2rem] md:text-[4rem] font-semibold leading-[1.1] tracking-tighter md:indent-70  md:px-0"
+        >
           {renderWithHighlights()}
         </h1>
-
       </div>
     </section>
+
   );
 }
