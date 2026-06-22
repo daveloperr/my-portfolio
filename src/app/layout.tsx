@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import AppLoader from "../components/AppLoader";
+import { TransitionProvider } from "../components/TransistionLayer";
 import "./globals.css";
 
 const inter = Inter({
@@ -11,7 +13,7 @@ const playfairDisplay = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
   // Change weight to "variable" instead of an array
-  weight: "variable", 
+  weight: "variable",
   style: ["normal", "italic"],
 });
 
@@ -30,7 +32,12 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${playfairDisplay.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col px-6">{children}</body>
+
+<body className="min-h-full flex flex-col">
+          <TransitionProvider>
+          <AppLoader>{children}</AppLoader>
+        </TransitionProvider>
+      </body>
     </html>
   );
 }
