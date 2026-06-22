@@ -2,12 +2,14 @@
 
 import { useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
+import { useTransition } from "../TransistionLayer";
 
 interface NavBarProps {
   onOpenAbout: () => void;
 }
 
 export default function NavBar({ onOpenAbout }: NavBarProps) {
+  const { navigate } = useTransition();
   const router = useRouter();
   const pathname = usePathname();
 
@@ -33,31 +35,32 @@ export default function NavBar({ onOpenAbout }: NavBarProps) {
   };
 
   return (
-    <nav id="blur-navbar" className="w-full flex justify-between items-center text-xs font-medium uppercase tracking-wider text-white">
+    <nav id="blur-navbar" className="w-full flex justify-between items-center text-[0.7rem] lg:text-[0.8rem]  uppercase tracking-wider text-white ">
       <div
         className="cursor-pointer"
         onClick={() => {
           if (pathname !== "/") {
-            router.push("/");
+            navigate("/");
           } else {
-            window.scrollTo({ top: 0, behavior: "smooth" });
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
           }
         }}
       >
         VaughnLopez
       </div>
 
-      <div>Freelance Developer — UI / UX</div>
+      <div className="hidden md:block">Freelance Developer — UI / UX</div>
 
+      <div className="flex gap-3">
+        <button className="uppercase" onClick={onOpenAbout}>About,</button>
 
-      <div className="flex gap-4">
-        <button className="uppercase" onClick={onOpenAbout}>About</button>
-
-        <button className="uppercase" onClick={() => scrollTo("works")}>Work</button>
+        <button className="uppercase" onClick={() => scrollTo("works")}>Work,</button>
         <button className="uppercase" onClick={() => scrollTo("contact")}>Contact</button>
       </div>
 
-      <div>Based in Manila, PH</div>
-    </nav>
+      <div className="hidden sm:hidden md:block">Based in Manila, PH</div>    </nav>
   );
 }
