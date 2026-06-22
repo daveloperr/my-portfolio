@@ -1,28 +1,40 @@
 import projects from "../../data/projects";
 import Link from "next/link";
+import { useTransition } from "../TransistionLayer";
 
 export default function ProjectGrid() {
-  return (
-    <section className="py-32 mt-30">
+  const { navigate } = useTransition();
 
-      <div className="grid grid-cols-12 gap-x-12">
-        {/* LEFT SIDE LABEL */}
-        <div className="col-span-2">
-          <div className="flex items-center gap-3 sticky top-32">
+  return (
+    // Added px-6 to ensure content doesn't hit the very edge on mobile
+    <section className="py-20 md:py-32 mt-20 md:mt-30">
+      {/* grid-cols-1: Forces everything into one vertical line on mobile
+        md:grid-cols-12: Switches back to your 12-column desktop layout
+      */}
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-y-10 md:gap-x-12">
+        
+        {/* LEFT SIDE LABEL: Now stacks at the top */}
+        <div className="md:col-span-2 ">
+          <div className="flex items-center gap-3 md:sticky md:top-32">
             <span className="w-3 h-3 rounded-full bg-pink-400 block"></span>
             <span className="text-[1.2rem] font-semibold">Selected work</span>
           </div>
         </div>
 
-        {/* RIGHT SIDE — SINGLE VERTICAL COLUMN OF PROJECTS */}
-        <div className="col-span-8 flex flex-col gap-y-12">
+        {/* RIGHT SIDE: Full width on mobile, col-span-8 on desktop */}
+        <div className="col-span-1 md:col-span-8 lg:cols-span-10 flex flex-col gap-y-16">
           {projects.map((project) => (
             <Link
               key={project.id}
               href={`/works/${project.slug}`}
               className="group block"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate(`/works/${project.slug}`);
+              }}
             >
-              <div className="w-full h-[700px] overflow-hidden rounded-md flex items-center justify-center bg-[#f0f0f0]">
+              {/* Image Container: Full width, adjusted height for mobile */}
+              <div className="w-full h-[250px] md:h-[700px] overflow-hidden rounded-md flex items-center justify-center bg-[#f0f0f0]">
                 <img
                   src={project.imageUrl}
                   alt={project.title}
@@ -33,24 +45,13 @@ export default function ProjectGrid() {
 
               <div className="mt-4">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-black text-xl font-semibold uppercase leading-tight">
+                  <h3 className="text-black text-lg md:text-xl font-semibold uppercase leading-tight">
                     {project.title}
                   </h3>
-                  <span className="text-gray-700 text-lg font-medium tracking-tight uppercase">
+                  <span className="text-gray-700 text-md md:text-lg font-medium tracking-tight uppercase">
                     {project.year}
                   </span>
                 </div>
-
-                {/* <div className="flex flex-wrap gap-2 mt-4">
-                  {project.techStack?.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 text-xs font-medium text-neutral-500 bg-[#e5e5e5] rounded-xs uppercase"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div> */}
               </div>
             </Link>
           ))}
