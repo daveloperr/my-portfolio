@@ -33,7 +33,7 @@ export default function RootLayout({
       className={`${inter.variable} ${playfairDisplay.variable} h-full antialiased`}
     >
 
-<body className="min-h-full flex flex-col">
+<body className="min-h-full flex flex-col w-full overflow-x-hidden">
           <TransitionProvider>
           <AppLoader>{children}</AppLoader>
         </TransitionProvider>
