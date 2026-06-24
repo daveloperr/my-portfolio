@@ -50,6 +50,21 @@ export default function Hero({ navbarRef, paused }: HeroProps) {
                 gsap.set([paragraphRef1.current, paragraphRef2.current], { clipPath: "inset(0% 0% 0% 0%)", y: 0 });
                 gsap.set(titleRef.current, { clipPath: "inset(0% 0% 0% 0%)" });
 
+
+                mm.add("(max-width: 767px)", () => {
+                    const tl = gsap.timeline({
+                        scrollTrigger: {
+                            trigger: sectionRef.current,
+                            start: "top top",
+                            end: "+=20%",
+                            scrub: 0.8,
+                        },
+                    });
+
+                    tl.to(navbarRef.current, { y: 8, ease: "power2.out" }, 0);
+                });
+
+
                 mm.add("(min-width: 768px)", () => {
                     const tl = gsap.timeline({
                         scrollTrigger: {
@@ -120,6 +135,8 @@ export default function Hero({ navbarRef, paused }: HeroProps) {
         return () => ctx.revert();
     }, []);
 
+
+
     useEffect(() => {
         if (!videoRef.current) return;
         if (paused) {
@@ -188,7 +205,7 @@ export default function Hero({ navbarRef, paused }: HeroProps) {
                                 ref={para1InnerRef}
                                 className="uppercase text-3xl lg:text-5xl tracking-tighter leading-[0.95] lg:leading-[0.85] text-center font-extrabold"
                             >
-                                FULL-STACK DEVELOPER / UI & UX DESIGNER CRAFTING
+                                FULL-STACK DEVELOPER & UI/UX DESIGNER CRAFTING
                             </h2>
                         </div>
                         <div ref={paragraphRef2} className="overflow-hidden md:mt-2">
