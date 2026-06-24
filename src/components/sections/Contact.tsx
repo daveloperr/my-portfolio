@@ -2,9 +2,9 @@ import { ArrowUp, ArrowUpRight } from "lucide-react";
 
 export default function Contact() {
     return (
-        <section className="relative bg-[#111111] text-white px-6 pt-8 pb-16 min-h-screen flex flex-col mt-30">
+        <section className="relative bg-[#111111] text-white px-6 pt-8 pb-16 min-h-screen flex flex-col mt-40">
 
-            <div className="flex items-center justify-between pb-8 pt-20 border-b border-white/10">
+            <div className="flex items-center justify-between pb-8 lg:pt-20 border-b border-white/10">
                 <div className="flex items-center gap-2">
                     <span className=" w-2 h-2 lg:w-3 lg:h-3 rounded-full bg-pink-400 block"></span>
                     <span className="text-[0.8rem] font-semibold lg:hidden">
