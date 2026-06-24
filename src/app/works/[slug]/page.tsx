@@ -20,13 +20,11 @@ export default async function ProjectSlugPage({ params }: Props) {
   if (!project) return notFound();
 
  return (
-  <>
+<main className="w-full overflow-x-hidden">
     <ProjectDetails project={project} />
     <ViewMoreProjects currentSlug={project.slug} />
-    <div className="-mx-6">
     <Contact />
+  </main>
 
-    </div>
-  </>
 );
 }
