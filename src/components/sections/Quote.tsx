@@ -64,30 +64,46 @@ export default function Quote() {
         backgroundSize: "0% 80%",
       });
 
-      ScrollTrigger.create({
+    const mm = gsap.matchMedia();
+
+mm.add("(min-width: 768px)", () => {
+    ScrollTrigger.create({
         trigger: h1,
-start: "bottom 10%",
+        start: "bottom 10%",
         once: true,
-
         onEnter: () => {
-          gsap.to(highlights, {
-            backgroundSize: "100% 80%",
-            duration: 0.7,
-            ease: "power2.out",
-            stagger: 0.2,
-          });
+            gsap.to(highlights, {
+                backgroundSize: "100% 80%",
+                duration: 0.7,
+                ease: "power2.out",
+                stagger: 0.2,
+            });
         },
+    });
+});
 
-        // Uncomment temporarily if debugging
-        // markers: true,
-      });
-    }, h1);
+mm.add("(max-width: 767px)", () => {
+    ScrollTrigger.create({
+        trigger: h1,
+        start: "top 80%",
+        once: true,
+        onEnter: () => {
+            gsap.to(highlights, {
+                backgroundSize: "100% 80%",
+                duration: 0.7,
+                ease: "power2.out",
+                stagger: 0.2,
+            });
+        },
+    });
+});
+});
 
     return () => ctx.revert();
   }, []);
 
   return (
-   <section className="mt-80 mb-20 w-full">
+   <section className="mt-20 lg:mt-80 mb-20 w-full">
       <div className="grid grid-cols-12">
         <h1
           ref={h1Ref}
