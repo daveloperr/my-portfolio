@@ -45,6 +45,9 @@ body {
 }
 
 
+* {
+  outline: 1px solid red;
+}
 
 .loader-hide {
   transform: translateY(-100%);
