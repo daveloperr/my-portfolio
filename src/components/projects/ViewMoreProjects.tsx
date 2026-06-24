@@ -15,7 +15,7 @@ export default function ViewMoreProjects({ currentSlug }: { currentSlug: string 
             <div className="grid grid-cols-2 gap-4 w-fit">
 
                 <span className="col-span-2  text-left uppercase text-5xl font-bold">
-                    More Works
+                    View More
                 </span>
 
                 {filtered.map((project) => (
