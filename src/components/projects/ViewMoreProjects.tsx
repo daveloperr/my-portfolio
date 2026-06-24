@@ -11,34 +11,34 @@ export default function ViewMoreProjects({ currentSlug }: { currentSlug: string 
         projects[(currentIndex + 2) % projects.length],
     ];
     return (
-        <section id="more-projects" className="mt-32 flex justify-end py-24">
-            <div className="grid grid-cols-2 gap-4 w-fit">
+     <section
+    id="more-projects"
+    className="mt-20 lg:mt-32 flex justify-center lg:justify-end py-16 lg:py-24 px-4 lg:px-6"
+>
+    <div className="grid grid-cols-2 gap-4 w-full lg:w-fit">
+        <span className="col-span-2 text-left uppercase text-3xl lg:text-5xl font-bold">
+            View More
+        </span>
 
-                <span className="col-span-2  text-left uppercase text-5xl font-bold">
-                    View More
-                </span>
-
-                {filtered.map((project) => (
-                    <Link
-                        key={project.id}
-                        href={`/works/${project.slug}`}
-                        className="block w-64"
-                    >
-                        <div className="aspect-[3/2] overflow-hidden rounded-md">
-                            <img
-                                src={project.imageUrl}
-                                alt={project.title}
-                                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                            />
-                        </div>
-
-                        <h3 className="mt-3 text-sm font-medium uppercase text-left">
-                            {project.title}
-                        </h3>
-                    </Link>
-                ))}
-
-            </div>
-        </section>
+        {filtered.map((project) => (
+            <Link
+                key={project.id}
+                href={`/works/${project.slug}`}
+                className="block w-full lg:w-64"
+            >
+                <div className="aspect-[3/2] overflow-hidden rounded-md">
+                    <img
+                        src={project.imageUrl}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                    />
+                </div>
+                <h3 className="mt-3 text-sm font-medium uppercase text-left">
+                    {project.title}
+                </h3>
+            </Link>
+        ))}
+    </div>
+</section>
     )
 }
