@@ -30,11 +30,11 @@ export default function Contact() {
             <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center justify-items-center mt-12 lg:mt-16 ">
 
                 {/* LEFT COLUMN: Text and Header */}
-                <div className="lg:col-span-6 flex flex-col gap-4 text-center items-center lg:text-left lg:items-start border-b border-white/10 w-full pb-10">
-                    <h1 className="text-[2.3rem] lg:text-[5rem] font-medium leading-[0.95] tracking-tight">
+                <div className="lg:col-span-6 flex flex-col gap-4 text-center items-center lg:text-left lg:items-start  w-full pb-10">
+                    <h1 className="text-[2.3rem] lg:text-[4.6rem] font-medium leading-[0.95] tracking-tight">
                         Create with clear purpose.
                     </h1>
-                    <p className="text-neutral-400 text-md sm:text-[1.5rem] mb-4">Logic met with style.</p>
+                    <p className="text-neutral-400 text-md sm:text-[1rem] lg:text-[1.2rem] mb-4">Bringing  Ideas To Life!</p>
                 </div>
 
                 {/* RIGHT COLUMN: Profile, Socials, Email, Button */}
