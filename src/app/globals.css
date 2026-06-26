@@ -56,3 +56,8 @@ body {
 .loader-hide {
   transform: translateY(-100%);
 }
+
+
+#blur-hero .hero-title-inner  { transform: translateY(100%); }
+#blur-hero .hero-para-inner   { transform: translateY(100%); }
+#blur-hero .hero-img-wrapper  { opacity: 0; transform: translateY(60px); }
