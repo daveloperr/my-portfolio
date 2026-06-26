@@ -50,7 +50,7 @@ export default function Loader({ onComplete }: LoaderProps) {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-[999999] flex items-center justify-center bg-white"
+      className="fixed inset-0 z-[999999] flex items-center justify-center bg-[#f5f5f5]"
     >
       <div className="overflow-hidden h-[1em]">
         <span
