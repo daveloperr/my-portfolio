@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import NavBar from "../components/layout/NavBar";
 import Hero from "../components/sections/Hero";
 import ProjectGrid from "../components/projects/ProjectGrid";
@@ -12,18 +12,42 @@ import { TechStack } from "../components/sections/TechStack";
 export default function Home() {
   const navbarRef = useRef<HTMLDivElement>(null!);
   const [aboutOpen, setAboutOpen] = useState(false);
+const [ready, setReady] = useState(false);
+  useEffect(() => {
+  const handlePageShow = () => {
+    console.log("PAGESHOW", window.scrollY);
+  };
+
+  window.addEventListener("pageshow", handlePageShow);
+
+  return () => {
+    window.removeEventListener("pageshow", handlePageShow);
+  };
+}, []);
+
+
+useEffect(() => {
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      setReady(true);
+    });
+  });
+}, []);
+
+
+useEffect(() => {
+  console.log("HOME MOUNT");
+}, []);
 
   return (
     <main className="w-full">
-      <div className="relative w-full px-3 lg:px-6">
-        {/* Navbar Wrapper */}
-        <div ref={navbarRef} className="fixed top-0 left-0 w-full z-20 px-3 lg:px-6 pt-2 pointer-events-none" style={{ mixBlendMode: "difference" }}>
-          <div className="pointer-events-auto">
-            <NavBar onOpenAbout={() => setAboutOpen(true)} />
-          </div>
-        </div>
-
-        <AboutDrawer open={aboutOpen} onClose={() => setAboutOpen(false)} />
+      <div className="relative w-full px-3 lg:px-6" 
+      style={{
+    opacity: ready ? 1 : 0,
+    transition: "opacity 0.2s ease",
+  }}
+  >
+    
 
         {/* Grid Overlay remains separate and fixed */}
         <div className="pointer-events-none fixed inset-0 z-[99999] w-full">
@@ -34,12 +58,16 @@ export default function Home() {
           </div>
         </div>
 
-        <Hero paused={aboutOpen} navbarRef={navbarRef} />
+        <Hero paused={aboutOpen} />
 
         {/* Sections are now direct children of the main wrapper, NOT inside a grid-cols-4 div */}
         <div id="top" className="relative w-full">
           <Quote />
-          <ProjectGrid />
+        
+        </div>
+
+         <div id="works">
+            <ProjectGrid />
         </div>
 
         <div id="contact" className="-mx-3 lg:-mx-6">
