@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import AppLoader from "../components/AppLoader";
 import { TransitionProvider } from "../components/TransistionLayer";
+import PersistentNavbar from "../components/layout/PersistentNavbar";
+import NavBar from "../components/layout/NavBar";
 import "./globals.css";
 
 const inter = Inter({
@@ -27,6 +29,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  
   return (
     <html
       lang="en"
@@ -34,10 +38,13 @@ export default function RootLayout({
     >
 
 <body className="min-h-full flex flex-col w-full overflow-x-hidden">
-          <TransitionProvider>
-          <AppLoader>{children}</AppLoader>
-        </TransitionProvider>
-      </body>
+  <AppLoader>
+    <TransitionProvider>
+      <PersistentNavbar />
+      {children}
+    </TransitionProvider>
+  </AppLoader>
+</body>
     </html>
   );
 }
