@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
 type LoaderProps = {
@@ -9,14 +9,13 @@ type LoaderProps = {
 
 export default function Loader({ onComplete }: LoaderProps) {
   const [count, setCount] = useState(0);
-  const numberRef = useRef<HTMLSpanElement>(null);
-  const stableOnComplete = useCallback(onComplete, []);
 
-useEffect(() => {
-  let current = 0;
-  
-  // Small delay to ensure DOM is ready
-  const startDelay = setTimeout(() => {
+  const numberRef = useRef<HTMLSpanElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let current = 0;
+
     const interval = setInterval(() => {
       current++;
       setCount(current);
@@ -24,27 +23,40 @@ useEffect(() => {
       if (current >= 100) {
         clearInterval(interval);
 
-        setTimeout(() => {
-          gsap.to(numberRef.current, {
-            yPercent: -120,
-            duration: 0.8,
-            ease: "expo.inOut",
-            onComplete: stableOnComplete,
-          });
-        }, 600);
+        gsap.timeline({
+          delay: 0.4,
+          onComplete,
+        })
+        .to(numberRef.current, {
+          yPercent: -120,
+          duration: 0.8,
+          ease: "expo.inOut",
+        })
+        .to(
+          containerRef.current,
+          {
+            opacity: 0,
+            duration: 0.4,
+            ease: "power2.out",
+          },
+          "-=0.2"
+        );
       }
     }, 25);
 
     return () => clearInterval(interval);
-  }, 100);
-
-  return () => clearTimeout(startDelay);
-}, [stableOnComplete]);
+  }, [onComplete]);
 
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center pointer-events-none">
+    <div
+      ref={containerRef}
+      className="fixed inset-0 z-[999999] flex items-center justify-center bg-white"
+    >
       <div className="overflow-hidden h-[1em]">
-        <span ref={numberRef} className="block text-sm font-medium">
+        <span
+          ref={numberRef}
+          className="block text-sm font-medium text-black"
+        >
           {count}
         </span>
       </div>
