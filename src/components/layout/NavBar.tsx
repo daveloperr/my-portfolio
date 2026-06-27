@@ -47,9 +47,11 @@ const scrollTo = (id: string) => {
     sessionStorage.setItem("pendingHash", id);
     navigate(`/#${id}`);
   } else {
-    document
-      .getElementById(id)
-      ?.scrollIntoView({ behavior: "smooth" });
+    history.replaceState(null, "", `/#${id}`);
+
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth",
+    });
   }
 };
   return (
