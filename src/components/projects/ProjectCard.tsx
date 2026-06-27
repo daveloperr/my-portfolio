@@ -29,16 +29,16 @@ export default function ProjectCard({ project }: { project: Project }) {
             }}
         >
 
-            <div className="bg-[#171717] p-4 rounded-2xl">
-                <div className="relative overflow-hidden rounded-xl">
+            <div className="relative overflow-hidden rounded-xl">
 
-                    <img
-                        src={project.imageUrl}
-                        alt={project.title}
-                        className="
+                <img
+                    src={project.imageUrl}
+                    alt={project.title}
+                    className="
         w-full
         h-[250px]
         md:h-[500px]
+        lg:h-[750px]
         object-cover
         transition-all
         duration-700
@@ -46,11 +46,11 @@ export default function ProjectCard({ project }: { project: Project }) {
         group-hover:scale-105
         group-hover:brightness-75
       "
-                    />
+                />
 
-                    {/* Arrow */}
-                    <div
-                        className="
+                {/* Arrow */}
+                <div
+                    className="
         absolute
         right-6
         bottom-6
@@ -68,21 +68,20 @@ export default function ProjectCard({ project }: { project: Project }) {
         group-hover:opacity-100
         group-hover:translate-y-0
       "
-                    >
-                        ↗
-                    </div>
-
+                >
+                    ↗
                 </div>
 
-                <div className="mt-4 flex justify-between">
-                    <h3 className="text-lg md:text-xl font-semibold uppercase">
-                        {project.title}
-                    </h3>
+            </div>
 
-                    <span className="uppercase">
-                        {project.year}
-                    </span>
-                </div>
+            <div className="mt-4 flex justify-between">
+                <h3 className="text-lg md:text-xl font-semibold uppercase">
+                    {project.title}
+                </h3>
+
+                <span className="uppercase">
+                    {project.year}
+                </span>
             </div>
 
         </Link>
